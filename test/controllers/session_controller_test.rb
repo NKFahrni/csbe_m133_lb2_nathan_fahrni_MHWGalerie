@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class SessionControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get :new
+    get session_new_url
     assert_response :success
   end
 

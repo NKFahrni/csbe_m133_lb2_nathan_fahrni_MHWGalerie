@@ -1,49 +1,274 @@
+<!--stop rails server: kill -INT $(cat tmp/pids/server.pid)-->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Testapp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <style>
+      .nav_bar .icon {
+          display: none;
+      }
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      .imgsize {
+          padding: 20px;
+          width: 350px;
+          height: 300px;
+      }
 
-  </head>
+      table.row {
+          max-width: 1600px;
+          position: relative;
+          top: 300px;
+          left: 400px;
+          right: 200px;
+      }
 
-  <header>
+      table.row2nd-site {
+          top: 800px;
+          max-width: 1800px;
+          position: relative;
+          left: 400px;
+          right: 200px;
+      }
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href>Nathan Fahrni</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" <%= link_to"Home", root_path%> <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../users/show.html">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: Sans-Serif;
+      }
 
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-  </header>
+      .login-box h1 {
+          float: left;
+          margin-left: 5px;
+          border-bottom: 3px solid;
+          margin-bottom: 55px;
+          padding: 10px;
+          color: #030303;
+          font-size: 80px;
+      }
 
-  <body>
-    <%= yield %>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      .login-box h2 {
+          font-size: 20px;
+          font-family: Sans-Serif;
+          color: #030303;
+      }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      .register-box {
+          background-color: rgba(250, 250, 250, 0.5);
+          width: 340px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+      .register-box h1 {
+          float: left;
+          margin-left: 5px;
+          border-bottom: 3px solid;
+          margin-bottom: 55px;
+          padding: 10px;
+          color: #030303;
+          font-size: 80px;
+      }
+
+      .register-box h2 {
+          font-size: 20px;
+          font-family: Sans-Serif;
+          color: #030303;
+      }
+
+      .profil-box {
+          background-color: rgba(250, 250, 250, 0.5);
+          width: 400px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+
+      .login-box {
+          background-color: rgba(250, 250, 250, 0.5);
+          width: 280px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+
+      .login-box btn {
+          color: #030303;
+          cursor: pointer;
+      }
+
+      .bgimg1pic {
+          z-index: -1;
+          height: 1080px;
+          width: 100%;
+          background-width: 100%;
+          background-attachment: fixed;
+          background-size: cover;
+          position: absolute;
+          top: 0px;
+      }
+
+      .texth1 {
+          position: absolute;
+          top: 200px;
+          left: 400px;
+          color: #030303;
+          font-size: 80px;
+
+      }
+
+      .chatintroduction-text-position {
+          color: #ffffff;
+          position: absolute;
+          top: 1550px;
+          left: 450px;
+          border-bottom: #2E2F30 solid 1px;
+          background-color: rgba(100, 100, 100, 0.5);
+      }
+
+      .btngroup {
+          display: inline-block;
+          position: relative;
+          top: 1620px;
+          left: 450px;
+          width: 400px;
+          height: 200px;
+          margin-top: 40px;
+          margin-right: 40px;
+          font-size: 20px;
+          color: #ffffff;
+          border: 5px solid black;
+          background-color: rgba(100, 100, 100, 0.5);
+          cursor: pointer;
+      }
+
+      .text-color-black {
+          color: #030303;
+      }
+
+      .text-color {
+          color: #ffffff;
+      }
+
+      .text-size {
+          font-size: 20px
+      }
+
+      .bgimg2pic {
+          z-index: -1;
+          height: 2160px;
+          width: 100%;
+          background-width: 100%;
+          background-attachment: fixed;
+          background-size: cover;
+          position: absolute;
+          top: 0px;
+      }
+
+      .project-name {
+          float: left;
+          position: relative;
+          padding-righgt: 10px;
+          font-size: 40px
+      }
+
+      .sub-text {
+          position: absolute;
+          z-index: 800;
+          left: 530px;
+          top: 950px;
+          color: #030303;
+          display: block;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-weight: unset;
+          background-color: rgba(200, 200, 200, 0.5);
+      }
+
+      .text-name {
+          position: absolute;
+          z-index: 999;
+          left: 600px;
+          top: 750px;
+          color: #030303;
+          display: block;
+          font-size: 40px;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-weight: bold;
+
+      }
+
+      .text-center {
+          position: absolute;
+          display: block;
+          font-size: 40px;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          font-weight: bold;
+          top: -20px;
+      }
+
+      h2.text-center {
+          background-color: Grey;
+          color: black;
+      }
+
+      .hamburger {
+          background-color: transparent;
+          border: 0;
+          display: none;
+          color: #ffffff;
+          font-size:20px;
+          position:absolute;
+          top:30px;
+          right: 20px;
+      }
+
+
+
+  </style>
+  <title>Monster Hunter World Galerie</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<header>
+</header>
+
+<body>
+
+<nav class="nav_bar"><!-- SRC responmsiveNav: https://www.youtube.com/watch?v=ydZc17rlR5E-->
+  <button class="hamburger" id="hamburger">
+    <i class="fa fa-bars"></i>
+  </button>
+  <li class="nav-items"><h1 class="text-size text-color" href="">Darkmode</h1></li>
+  <li class="nav-items">
+    <strong><a class="nav-items title text-color" <%= link_to "Home", root_path %></a></strong></li>
+  <ul class="nav-ul" id="navUl">
+    <li class="nav-items"><a class="text-size" href="/profil/index">Profil</a></li>
+    <li class="nav-items"><a class="text-size" href="/galerie/index">Galerie</a></li>
+    <li class="nav-items"><a class="text-size" href="/login/index">Login</a></li>
+    <li class="nav-items"><a class="text-size" href="/register/index">Register</a></li>
+    <li class="nav-items"><a class="text-size" href="#">Logout</a></li>
+  </ul>
+</nav>
+
+
+<%= yield %>
+<script type="text/javascript" src="/app/javascript/channels/responsiveNav.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
 </html>

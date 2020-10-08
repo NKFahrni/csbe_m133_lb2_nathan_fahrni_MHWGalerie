@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'myietcsbe/show'
-  get 'myfriends/show'
-  get 'myswitzerland/show'
-  root 'pages#home'
-  #get 'pages/home'
-  #get 'helloworldtest', to: 'helloworldtest#index'
+  get 'session/new'
+  root 'homepage#home'
+  get 'register/index' => 'users/new'
+  get 'homepage/home' => 'homepage#home'
+  get 'login/index' => 'login/index'
+  get 'profil/index' => 'profil/index'
+  get 'galerie/index' => 'galerie/index'
+  post   '/login'   => 'session#create'
+  delete 'logout'  => 'session#destroy'
+  post '/create' => 'user#create'
+  resources :user
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

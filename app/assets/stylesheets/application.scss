@@ -7,86 +7,87 @@
 *{
   box-sizing: border-box;
 }
+
 body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 0;
+  padding-bottom: 0;
   color: #5a5a5a;
 }
 
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+.title {
+  font-size: 40px;
 }
 
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-  background-color: #777;
+.nav_bar {
+  background-color: rgba(3, 3, 3, 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 75px;
+  margin: 0;
+  padding: 15px;
+  list-style-type: none;
 }
-.carousel-item > img {
+
+.nav-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  float: left;
+  list-style-type: none;
+}
+
+.nav-ul li a {
+  color: #ffffff;
+  font-family: Regular, Sans-Serif;
+  padding: 10px 20px;
+}
+
+.nav_bar .nav-items .a {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.hamburger {
+  background-color: transparent;
+  display: flex;
+  border: 0;
+  display: none;
+  color: #ffffff;
+  font-size: 20px;
+  right: 20px;
   position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+  cursor: pointer;
 }
 
+.hamburger:focus{
 
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
 }
 
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
+@media screen and(max-width: 600px) {
+  .hamburger {
+    display: block;
   }
 
-  .featurette-heading {
-    font-size: 50px;
+  .nav-ul {
+    display: none;
   }
+
+  .nav-ul.show {
+    display: flex;
+  }
+
+  .nav_bar li a {
+    padding: 10px;
+  }
+}
+
+.site-name{
+  position:absolute;
+  left: 420px;
+  top: 20px;
+  color: #ffffff;
 }
 
 @media (min-width: 62em) {
@@ -94,6 +95,21 @@ body {
     margin-top: 7rem;
   }
 }
+
+@mixin box_sizing{
+-moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.debug_dump{
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  @include box_sizing;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
