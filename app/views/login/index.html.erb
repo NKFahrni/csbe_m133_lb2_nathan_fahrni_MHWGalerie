@@ -8,13 +8,12 @@
 <title>Home</title>
 
 <body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1 class="site-name">Login</h1>
 
 <form class="login-box" accept-charset="UTF-8" action="/login" method="post">
   <input name="utf8" type="hidden" value="&#x2713;" />
   <input name="authenticity_token" type="hidden"
-         value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo="/>
+         value="<%=form_authenticity_token%>"/>
   <h1>Login</h1>
   <h2>Username</h2>
   <input id="session_username" type="text" placeholder="Username" name="session[username]" value="">

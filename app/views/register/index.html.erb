@@ -7,13 +7,13 @@
 </head>
 <title>Home</title>
 <body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h1 class="site-name">Registrieren</h1>
 
 <form class="register-box" accept-charset="UTF-8" action="/create" method="post">
   <input name="utf8" type="hidden" value="&#x2713;" />
   <input name="authenticity_token" type="hidden"
-         value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
+         value="<%=form_authenticity_token%>" />
 
   <h1>Register</h1>
   <h2>Name</h2>

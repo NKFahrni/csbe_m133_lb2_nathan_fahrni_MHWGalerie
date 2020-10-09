@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post   '/login'   => 'session#create'
   delete 'logout'  => 'session#destroy'
   post '/create' => 'user#create'
+  post '/logout' =>  'session#destroy'
   resources :user
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
