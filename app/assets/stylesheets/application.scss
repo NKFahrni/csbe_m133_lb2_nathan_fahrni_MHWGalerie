@@ -136,6 +136,25 @@ table.row2nd-site {
   transform: translate(-50%, -50%);
 }
 
+.profil-box h1{
+  color: #030303;
+  font-family: Sans-Serif;
+  font-size: 40px;
+}
+
+.profil-box h2{
+  font-size: 20px;
+  font-family: Sans-Serif;
+  color: #030303;
+}
+
+.profil-box-delete{
+  position: absolute;
+  left: 40%;
+  top: 800px;
+cursor: pointer;
+}
+
 .login-box {
   background-color: rgba(250, 250, 250, 0.5);
   width: 280px;
