@@ -317,20 +317,33 @@ h2.text-center {
     display: none;
   }
 
-  .nav-ul.show {
+  .nav-ul.responsive {
     display: flex;
   }
 
-  .nav_bar li a {
-    padding: 10px;
+  .nav_bar.responsive{
+    display: block;
   }
+
+  .nav_bar li a {
+    display: block;
+    width: 50%;
+    text-align: right;
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+.btn-darkmode{
+  font-size: 15px;
 }
 
 .site-name {
   position: absolute;
-  left: 420px;
+  left: 380px;
   top: 15px;
   color: #ffffff;
+  font-size: 30px;
 }
 
 @media (min-width: 62em) {
