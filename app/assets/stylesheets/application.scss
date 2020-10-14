@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+.position-search{
+  position: absolute;
+  top: 40px;
+  right: 100px;
+}
+
+.search-txt{
+  color: #ffffff;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
 body {
   padding-top: 0;
   padding-bottom: 0;
