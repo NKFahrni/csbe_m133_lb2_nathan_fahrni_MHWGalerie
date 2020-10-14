@@ -20,12 +20,12 @@ class UserController < ApplicationController #SRC: https://3rd-edition.railstuto
 
   # Confirms correct user SRC: https://3rd-edition.railstutorial.org/book/updating_and_deleting_users
   def correct_user
-    @user = User.find_by_id([:id])
+    @user = User.find_by([:id])
     redirect_to(root_path) unless @user == currentuser?(@user)
   end
 
   def update #handles successful edit/update SRC: https://3rd-edition.railstutorial.org/book/updating_and_deleting_users
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by(params[:id])
     if @user.update_attributes(user_params)
 
       redirect_to root_path
@@ -36,7 +36,7 @@ class UserController < ApplicationController #SRC: https://3rd-edition.railstuto
   end
 
   def destroy
-    User.find_by_id(params[:id]).destroy
+    User.find_by(params[:id]).destroy
     logout
     redirect_to root_path
   end

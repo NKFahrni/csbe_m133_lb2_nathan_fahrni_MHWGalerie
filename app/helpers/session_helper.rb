@@ -12,7 +12,7 @@ module SessionHelper
 
   # Returns the current Logged-in user if any are logged in SRC: https://3rd-edition.railstutorial.org/book/log_in_log_out
   def currentuser
-    @currentuser = User.find_by(id: session[:user_id])
+    @currentuser = User.find(id: session[:user_id])
   end
 
   #Returns true if the user is logged in, false when otherwise SRC: https://3rd-edition.railstutorial.org/book/log_in_log_out
