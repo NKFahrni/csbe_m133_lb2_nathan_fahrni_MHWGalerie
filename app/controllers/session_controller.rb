@@ -8,7 +8,6 @@ class SessionController < ApplicationController #SRC: https://3rd-edition.railst
       login user
       redirect_to root_path
     else
-      flash.now[:error] = 'Invalid username/password combination'
       render 'login/index'
     end
   end

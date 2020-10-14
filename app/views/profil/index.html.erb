@@ -10,20 +10,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1 class="site-name">Profil</h1>
 <h1 class="texth1"><strong>Profil</strong></h1>
-<div class="profil-box">
+
+<form class="profil-box" accept-charset="UTF-8" action="/update" method="post">
+  <input name="utf8" type="hidden" value="&#x2713;"/>
+  <input name="authenticity_token" type="hidden"
+         value="<%= form_authenticity_token %>"/>
   <h1>Change Password</h1>
+
   <h2>New Password:</h2>
-  <input type="text" placeholder="Password" name="" value="">
+  <input type="password" placeholder="Password" name="user[password]" value="enter PW">
   <br/>
   <br/>
   <h2>Confirm Password:</h2>
-  <input type="password" placeholder="Password" name="" value="">
+  <input type="password" placeholder="Password" name="user[password_confirmation]" value="confirm PW">
   <br/>
-  <input class="btn" type="button" name="" value="Change password"></input>
-</div>
+  <input class="btn" type="submit" name="commit" value="Change password">
+  <br/>
+  <br/>
+</form>
 
-<!--Textboxen in einer box, welche man als new password bezeichnet und als approve new password-->
-<div class="bgimg1pic"><img style="width: 100%;" src="/assets/erledigt1.jpg">
+  <form class="profil-box-delete" accept-charset="UTF-8" action="/delete" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;"/>
+    <input name="authenticity_token" type="hidden"
+           value="<%= form_authenticity_token %>"/>
+    <input class="btn" type="submit" name="delete" value="delete Profil">
+  </form>
+
+
+<div class="bgimg1pic">
+  <img style="width: 100%;" src="/assets/erledigt1.jpg"><!--img SRC: https://www.eurogamer.net/articles/2019-09-15-heres-what-capcom-has-planned-for-monster-hunter-world-in-the-next-few-months  -->
 </div>
 </body>
 </html>

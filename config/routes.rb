@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'session/new'
   root 'homepage#home'
-  get 'register/index' => 'users/new'
+  get 'register/index' => 'user/new'
   get 'homepage/home' => 'homepage#home'
   get 'login/index' => 'login/index'
   get 'profil/index' => 'profil/index'
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'session#destroy'
   post '/create' => 'user#create'
   post '/logout' =>  'session#destroy'
+  post '/update' => 'user#update'
+  post '/delete' => 'user#destroy'
   resources :user
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
